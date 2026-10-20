@@ -19,6 +19,7 @@ export interface Philosopher {
   corePhilosophy: string;  // 핵심 사상 요약 (교과서 핵심)
   whyYouMatch: string;     // 당신과 닮은 이유 (선택 결과 해설 3~4문장)
   emoji: string;           // 상징 이모지
+  imageUrl: string;        // 사상가 얼굴 사진 / 초상화 경로
   nemesisId: string;       // 철학적 천적 ID
   nemesisReason: string;   // 천적인 이유 설명
 }

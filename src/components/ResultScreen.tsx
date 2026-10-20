@@ -12,10 +12,12 @@ import {
   BookOpen,
   HeartHandshake,
   Activity,
+  Camera,
 } from 'lucide-react';
 import { ScoreResult, TRAIT_LABELS } from '../utils/scoring';
 import { PHILOSOPHERS } from '../data/philosophers';
 import { TraitKey } from '../types';
+import { SharePhotoCardModal } from './SharePhotoCardModal';
 
 interface ResultScreenProps {
   result: ScoreResult;
@@ -32,6 +34,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
 }) => {
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
+  const [isPhotoCardOpen, setIsPhotoCardOpen] = useState(false);
 
   const winner = PHILOSOPHERS[result.winnerId];
   const runnerUp = PHILOSOPHERS[result.runnerUpId];
@@ -59,15 +62,14 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
   };
 
   const handleShareResult = () => {
-    const shareText = `[철학자 생존게임 결과]\n나의 최종 생존 철학자: 🥇 ${winner.name} (“${winner.nickname}”)\n철학 코드: ${result.shareCode}\n너의 생존 철학자는 누구야? 지금 바로 확인해봐!`;
+    const shareText = `[철학자 생존게임 결과]\n나의 최종 생존 사상가: 🥇 ${winner.name} (“${winner.nickname}”)\n💬 "${winner.shortDesc}"\n철학 코드: ${result.shareCode}\n너의 생존 철학자는 누구야? 지금 바로 확인해봐!`;
 
     if (navigator.share) {
       navigator.share({
-        title: '철학자 생존게임 결과',
+        title: `철학자 생존게임 결과 - ${winner.name}`,
         text: shareText,
         url: window.location.href,
       }).catch(() => {
-        // Fallback to clipboard
         navigator.clipboard.writeText(shareText);
         setCopiedLink(true);
         setTimeout(() => setCopiedLink(false), 2000);
@@ -97,7 +99,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         </p>
       </div>
 
-      {/* Main Champion Card */}
+      {/* Main Champion Card with Portrait */}
       <div className="bg-gradient-to-b from-neutral-900 via-neutral-900 to-neutral-950 border-2 border-amber-500/50 rounded-3xl p-6 sm:p-7 shadow-2xl relative overflow-hidden">
         {/* Glow */}
         <div className="absolute top-0 right-0 w-44 h-44 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
@@ -113,13 +115,25 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
           </span>
         </div>
 
-        {/* Champion Title */}
+        {/* Champion Title with Portrait Image */}
         <div className="flex items-center gap-4 mb-4 relative z-10">
-          <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 p-0.5 shadow-xl shrink-0">
-            <div className="w-full h-full bg-neutral-900 rounded-[14px] flex items-center justify-center text-4xl sm:text-5xl">
-              {winner.emoji}
+          <div className="relative shrink-0">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-xl bg-neutral-800 flex items-center justify-center relative">
+              <img
+                src={winner.imageUrl}
+                alt={winner.name}
+                className="w-full h-full object-cover object-top"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
+              />
+              <span className="text-4xl absolute -z-10">{winner.emoji}</span>
             </div>
+            <span className="absolute -bottom-1 -right-1 bg-amber-500 text-black text-xs font-bold p-1 rounded-full shadow">
+              {winner.emoji}
+            </span>
           </div>
+
           <div>
             <div className="text-xs sm:text-sm font-semibold text-amber-400 mb-0.5">
               “{winner.nickname}”
@@ -196,7 +210,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         </div>
       </div>
 
-      {/* TOP 3 Ranking Card */}
+      {/* TOP 3 Ranking Card with Portraits */}
       <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 shadow-xl">
         <div className="flex items-center gap-2 mb-4">
           <Award className="w-4 h-4 text-orange-400" />
@@ -208,6 +222,9 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
           <div className="flex items-center justify-between p-3 rounded-xl bg-amber-500/10 border border-amber-500/30">
             <div className="flex items-center gap-3">
               <span className="text-2xl">🥇</span>
+              <div className="w-10 h-10 rounded-lg overflow-hidden border border-amber-400 shrink-0 bg-neutral-800">
+                <img src={winner.imageUrl} alt={winner.name} className="w-full h-full object-cover object-top" />
+              </div>
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-black text-white">{winner.name}</span>
@@ -225,6 +242,9 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
           <div className="flex items-center justify-between p-3 rounded-xl bg-neutral-950/80 border border-neutral-800">
             <div className="flex items-center gap-3">
               <span className="text-2xl">🥈</span>
+              <div className="w-10 h-10 rounded-lg overflow-hidden border border-neutral-700 shrink-0 bg-neutral-800">
+                <img src={runnerUp.imageUrl} alt={runnerUp.name} className="w-full h-full object-cover object-top" />
+              </div>
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-neutral-200">{runnerUp.name}</span>
@@ -242,6 +262,9 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
           <div className="flex items-center justify-between p-3 rounded-xl bg-neutral-950/80 border border-neutral-800">
             <div className="flex items-center gap-3">
               <span className="text-2xl">🥉</span>
+              <div className="w-10 h-10 rounded-lg overflow-hidden border border-neutral-700 shrink-0 bg-neutral-800">
+                <img src={thirdPlace.imageUrl} alt={thirdPlace.name} className="w-full h-full object-cover object-top" />
+              </div>
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-neutral-200">{thirdPlace.name}</span>
@@ -257,7 +280,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         </div>
       </div>
 
-      {/* Philosophical Nemesis Card */}
+      {/* Philosophical Nemesis Card with Portrait */}
       <div className="bg-neutral-900 border border-red-500/30 rounded-2xl p-5 shadow-xl relative overflow-hidden">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
@@ -268,7 +291,9 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         </div>
 
         <div className="flex items-center gap-3 mb-3 bg-neutral-950/80 p-3 rounded-xl border border-neutral-800">
-          <span className="text-3xl shrink-0">{nemesis.emoji}</span>
+          <div className="w-12 h-12 rounded-xl overflow-hidden border border-red-500/40 shrink-0 bg-neutral-800">
+            <img src={nemesis.imageUrl} alt={nemesis.name} className="w-full h-full object-cover object-top" />
+          </div>
           <div>
             <div className="text-sm font-black text-white">{nemesis.name}</div>
             <div className="text-xs text-red-400">“{nemesis.nickname}”</div>
@@ -282,10 +307,22 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
 
       {/* Share & Compare Section */}
       <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border border-orange-500/40 rounded-2xl p-5 shadow-xl space-y-4">
-        <div className="flex items-center gap-2 text-white font-bold text-base">
-          <HeartHandshake className="w-5 h-5 text-orange-400" />
-          <span>친구와 결과 비교하기</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 text-white font-bold text-base">
+            <HeartHandshake className="w-5 h-5 text-orange-400" />
+            <span>결과 공유 및 친구 비교</span>
+          </div>
+          <span className="text-[11px] text-amber-400 font-medium">얼굴 사진 포함 카드 지원</span>
         </div>
+
+        {/* Main Photo Card Share Button */}
+        <button
+          onClick={() => setIsPhotoCardOpen(true)}
+          className="w-full py-4 px-4 rounded-xl font-black text-sm sm:text-base text-white bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 hover:from-amber-400 hover:to-red-500 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xl shadow-orange-600/30 border border-amber-300/30"
+        >
+          <Camera className="w-5 h-5 animate-pulse" />
+          <span>📸 {winner.name} 얼굴 사진 포토카드 저장 & 공유</span>
+        </button>
 
         {/* Share Code Box */}
         <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-3 flex items-center justify-between">
@@ -319,7 +356,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
             className="py-3 px-3 rounded-xl font-bold text-xs sm:text-sm text-neutral-200 bg-neutral-800 hover:bg-neutral-700 transition-colors flex items-center justify-center gap-1.5 border border-neutral-700 active:scale-95"
           >
             {copiedLink ? <Check className="w-4 h-4 text-emerald-400" /> : <Share2 className="w-4 h-4" />}
-            <span>{copiedLink ? '복사 완료!' : '결과 공유하기'}</span>
+            <span>{copiedLink ? '복사 완료!' : '결과 텍스트 공유'}</span>
           </button>
         </div>
       </div>
@@ -342,6 +379,14 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
           <span>21명 전체 철학자 도감 확인하기</span>
         </button>
       </div>
+
+      {/* Photo Card Modal */}
+      {isPhotoCardOpen && (
+        <SharePhotoCardModal
+          result={result}
+          onClose={() => setIsPhotoCardOpen(false)}
+        />
+      )}
     </div>
   );
 };

@@ -53,11 +53,13 @@ export const CompareModal: React.FC<CompareModalProps> = ({ myWinnerId, myShareC
         </h3>
 
         {/* My Info */}
-        <div className="bg-neutral-950/70 border border-neutral-800 rounded-xl p-3.5 mb-4 flex items-center justify-between">
+        <div className="bg-neutral-950/70 border border-neutral-800 rounded-xl p-3 mb-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-2xl">{myPhil.emoji}</span>
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-amber-400 shrink-0 bg-neutral-800">
+              <img src={myPhil.imageUrl} alt={myPhil.name} className="w-full h-full object-cover object-top" />
+            </div>
             <div>
-              <div className="text-[11px] text-neutral-400">내 최종 생존 철학자</div>
+              <div className="text-[10px] text-neutral-400">내 최종 생존 철학자</div>
               <div className="text-sm font-bold text-white">{myPhil.name}</div>
             </div>
           </div>
@@ -103,13 +105,17 @@ export const CompareModal: React.FC<CompareModalProps> = ({ myWinnerId, myShareC
           <div className="bg-gradient-to-br from-neutral-950 to-neutral-900 border border-orange-500/30 rounded-xl p-4 space-y-3 animate-in fade-in duration-200">
             <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
               <div className="flex items-center gap-2">
-                <span className="text-2xl">{myPhil.emoji}</span>
-                <span className="text-xs font-bold text-neutral-400">vs</span>
-                <span className="text-2xl">{result.friendPhil.emoji}</span>
+                <div className="w-12 h-12 rounded-xl overflow-hidden border border-amber-400 shrink-0 bg-neutral-800 shadow">
+                  <img src={myPhil.imageUrl} alt={myPhil.name} className="w-full h-full object-cover object-top" />
+                </div>
+                <span className="text-xs font-black text-orange-400 font-mono">VS</span>
+                <div className="w-12 h-12 rounded-xl overflow-hidden border border-cyan-400 shrink-0 bg-neutral-800 shadow">
+                  <img src={result.friendPhil.imageUrl} alt={result.friendPhil.name} className="w-full h-full object-cover object-top" />
+                </div>
               </div>
               <div className="text-right">
                 <div className="text-[10px] text-neutral-400">철학적 케미 점수</div>
-                <div className="text-lg font-black text-orange-400">
+                <div className="text-xl font-black text-orange-400">
                   {result.chemistryScore} <span className="text-xs text-neutral-400">/ 100</span>
                 </div>
               </div>

@@ -54,8 +54,18 @@ export const AllPhilosophersModal: React.FC<AllPhilosophersModalProps> = ({ onCl
               className="bg-neutral-950/70 border border-neutral-800/80 rounded-xl p-3 hover:border-neutral-700 transition-colors"
             >
               <div className="flex items-start justify-between gap-2 mb-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">{p.emoji}</span>
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl overflow-hidden border border-neutral-700 shrink-0 bg-neutral-800 flex items-center justify-center relative shadow">
+                    <img
+                      src={p.imageUrl}
+                      alt={p.name}
+                      className="w-full h-full object-cover object-top"
+                      onError={(e) => {
+                        (e.target as HTMLElement).style.display = 'none';
+                      }}
+                    />
+                    <span className="text-xl absolute -z-10">{p.emoji}</span>
+                  </div>
                   <div>
                     <div className="flex items-center gap-1.5">
                       <span className="font-bold text-sm text-white">{p.name}</span>
