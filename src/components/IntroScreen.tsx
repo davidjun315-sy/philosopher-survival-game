@@ -92,9 +92,17 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ onStart, onOpenEncyclo
           <span>21명 철학자 도감 열람하기</span>
         </button>
 
-        <p className="text-[11px] text-neutral-500 text-center pt-1">
-          서양윤리 입문 교육용 웹앱 • 데이터는 브라우저 내부에서만 안전하게 계산됩니다
-        </p>
+        <div className="flex items-center justify-between text-[11px] text-neutral-500 pt-1 px-1">
+          <span>v1.2 (사상가 사진 카드 탑재)</span>
+          <button
+            onClick={() => {
+              window.location.href = window.location.pathname + '?t=' + Date.now();
+            }}
+            className="text-orange-400 hover:text-orange-300 underline font-medium cursor-pointer"
+          >
+            🔄 최신 화면으로 새로고침
+          </button>
+        </div>
       </div>
     </div>
   );
