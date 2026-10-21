@@ -16,7 +16,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r1_opt2',
         text: '인간의 생명을 숫자로 계산해선 안 된다. 어떤 위험이 따르더라도 즉시 문을 열고 친구를 구한다.',
-        weights: { kant: 5, socrates: 3, augustine: 2, bentham: -3 },
+        weights: { kant: 5, augustine: 3, bentham: -3 },
         traitBonuses: { duty: 5, rational: 3, practical: -1 }
       },
       {
@@ -48,7 +48,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r2_opt2',
         text: '내가 직접 연구하고 싶었던 실험실을 만들거나, 사회의 구체적인 문제를 혁신할 실전 프로젝트 펀드를 설립한다.',
-        weights: { bacon: 5, dewey: 3, descartes: 3 },
+        weights: { bacon: 5, dewey: 4 },
         traitBonuses: { practical: 5, empirical: 4 }
       },
       {
@@ -138,7 +138,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r5_opt1',
         text: '데이터와 확률이 완벽하다면 쓸데없는 인생 낭비와 고통을 줄이기 위해 AI의 최적화 설계를 적극 따른다.',
-        weights: { bacon: 4, spinoza: 4, bentham: 4 },
+        weights: { bentham: 5, bacon: 4, spinoza: 2 },
         traitBonuses: { practical: 5, rational: 3 }
       },
       {
@@ -150,7 +150,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r5_opt3',
         text: 'AI의 조언을 절대 진리로 맹신하진 않되, 나의 성장을 돕는 훌륭한 유용한 도구로 삼아 참고한다.',
-        weights: { dewey: 4, aristotle: 4, hume: 2 },
+        weights: { dewey: 5, aristotle: 3, hume: 2 },
         traitBonuses: { practical: 4, empirical: 4 }
       },
       {
@@ -175,8 +175,8 @@ export const QUESTIONS: Question[] = [
       },
       {
         id: 'r6_opt2',
-        text: '가만히 있으면 거짓이 진실이 된다. 조작된 증거와 타임라인을 낱낱이 파헤치는 반박 팩트 자료를 만들어 논리적으로 박살 낸다.',
-        weights: { descartes: 5, bacon: 4, socrates: 2 },
+        text: '가만히 있으면 거짓이 진실이 된다. 사람들이 떠도는 말에 휘둘리는 편견부터 깨기 위해, 증거와 타임라인을 낱낱이 모아 팩트 자료로 반박한다.',
+        weights: { bacon: 5, descartes: 3, socrates: 2 },
         traitBonuses: { rational: 5, practical: 4 }
       },
       {
@@ -220,7 +220,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r7_opt4',
         text: '약물로 기억을 도망치는 것은 내 실존에 대한 비겁한 기만이다. 내 상처를 정면으로 응시하며 당당하게 결단하겠다.',
-        weights: { sartre: 4, jaspers: 4, kierkegaard: 4 },
+        weights: { sartre: 5, jaspers: 4, kierkegaard: 3 },
         traitBonuses: { freedom: 5, duty: 2 }
       }
     ]
@@ -240,7 +240,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r8_opt2',
         text: '모든 구성원이 매일 모여 토론하고 투표하며, 시행착오를 겪으면서 현실에 맞게 규칙을 끊임없이 수정해나간다.',
-        weights: { dewey: 5, socrates: 3, mill: 3 },
+        weights: { dewey: 5, mill: 4 },
         traitBonuses: { practical: 4, freedom: 4, empirical: 3 }
       },
       {
@@ -277,14 +277,14 @@ export const QUESTIONS: Question[] = [
       },
       {
         id: 'r9_opt3',
-        text: '확인하고, 남은 시간에 맞춰 가장 높은 성과와 가치를 창출할 수 있는 철저한 인생 실행 로드맵을 설계한다.',
-        weights: { bacon: 4, dewey: 2, bentham: 3 },
-        traitBonuses: { practical: 5, empirical: 3 }
+        text: '확인하고, 남은 시간 동안 나와 주변 사람들이 누릴 즐거움은 최대로, 고통은 최소로 만들도록 하루하루를 꼼꼼히 계산해 계획한다.',
+        weights: { bentham: 5, mill: 2 },
+        traitBonuses: { happiness: 5, practical: 3 }
       },
       {
         id: 'r9_opt4',
         text: '삶과 죽음의 때를 결정하는 것은 인간의 교만이 아닌 절대적 섭리다. 오직 주어진 시간 동안 숭고한 사랑과 의무를 다할 뿐이다.',
-        weights: { augustine: 5, aquinas: 4, kant: 3 },
+        weights: { augustine: 5, aquinas: 4, stoa: 2 },
         traitBonuses: { duty: 5, rational: 2 }
       }
     ]
@@ -298,7 +298,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r10_opt1',
         text: '어떤 권위라도 개인의 개성과 자유를 억압할 권리는 없다! 학생회를 조직하고 대자보를 붙여 전면 거부 투쟁에 나선다.',
-        weights: { sartre: 5, mill: 4, kierkegaard: 3 },
+        weights: { mill: 5, sartre: 4 },
         traitBonuses: { freedom: 5, duty: 2 }
       },
       {
@@ -310,7 +310,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r10_opt3',
         text: '공동체의 질서는 존중되어야 하므로 일단 규칙을 따르면서, 대의 기구와 합법적 절차를 거쳐 품격 있게 개정을 청원한다.',
-        weights: { aquinas: 4, plato: 3, kant: 3, stoa: 2 },
+        weights: { socrates: 5, kant: 4, aquinas: 3, stoa: 2 },
         traitBonuses: { duty: 4, rational: 4 }
       },
       {
@@ -330,7 +330,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r11_opt1',
         text: '거짓말은 그 어떤 핑계로도 정당화될 수 없는 절대적 악이다. 아무리 친구가 가련해도 사법 절차에서 위증할 순 없다.',
-        weights: { kant: 5, augustine: 4, plato: 2, hume: -3 },
+        weights: { kant: 5, augustine: 4, aquinas: 3, hume: -3 },
         traitBonuses: { duty: 5, rational: 3, empirical: -2 }
       },
       {
@@ -342,7 +342,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r11_opt3',
         text: '거짓말은 또 다른 파멸을 부른다. CCTV와 주변 차량 블랙박스를 이 잡듯이 뒤져서 친구의 진짜 무죄를 입증할 결정적 증거를 찾아낸다.',
-        weights: { descartes: 4, bacon: 4, dewey: 3, aquinas: 2 },
+        weights: { bacon: 5, dewey: 4, aquinas: 2 },
         traitBonuses: { rational: 4, practical: 4 }
       },
       {
@@ -426,13 +426,13 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r14_opt1',
         text: '우주와 세상의 모든 일은 거대한 자연의 법칙과 필연적인 인과관계에 따라 한 치의 오차 없이 흘러가고 있다.',
-        weights: { spinoza: 5, stoa: 4, descartes: 3 },
+        weights: { spinoza: 5, stoa: 4 },
         traitBonuses: { rational: 5, happiness: 2 }
       },
       {
         id: 'r14_opt2',
         text: '미리 정해진 운명 따위는 애초에 없다. 세상은 우연으로 가득 차 있으며, 오직 나의 선택과 결단만이 의미를 부여한다.',
-        weights: { sartre: 5, sophist: 3, kierkegaard: 3 },
+        weights: { sartre: 5, kierkegaard: 3 },
         traitBonuses: { freedom: 5, practical: 2 }
       },
       {
@@ -444,7 +444,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r14_opt4',
         text: '인간의 미천한 지혜를 내려놓고, 우주를 초월하여 존재하는 영원한 진리와 거룩한 사랑의 섭리에 겸허히 귀의한다.',
-        weights: { augustine: 5, aquinas: 4, plato: 3 },
+        weights: { augustine: 5, kierkegaard: 3, aquinas: 3, plato: 2 },
         traitBonuses: { duty: 5, rational: 3 }
       }
     ]
@@ -469,8 +469,8 @@ export const QUESTIONS: Question[] = [
       },
       {
         id: 'r15_opt3',
-        text: '단 0.001%의 생존 가능성이라도 있다면 마지막 1초까지 지하실을 보강하고 비상식량을 모으며 끝까지 포기하지 않는다.',
-        weights: { dewey: 3, bacon: 4, aristotle: 2 },
+        text: '마지막 1초까지 사람들과 머리를 맞대고 소행성 궤도를 관측·분석하며, 단 0.001%의 생존 가능성이라도 찾아내 실행한다.',
+        weights: { bacon: 5, dewey: 4 },
         traitBonuses: { practical: 5, empirical: 4 }
       },
       {
