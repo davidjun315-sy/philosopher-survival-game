@@ -138,7 +138,7 @@ export function getMidRoundBriefing(
     score: partialScores[p.id],
   })).sort((a, b) => b.score - a.score);
 
-  let survivorCount = 21;
+  let survivorCount = 20;
   let briefingTitle = '';
 
   if (round === 4) {

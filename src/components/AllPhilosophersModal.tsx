@@ -24,7 +24,7 @@ export const AllPhilosophersModal: React.FC<AllPhilosophersModalProps> = ({ onCl
         <div className="flex items-center justify-between pb-3 border-b border-neutral-800">
           <div className="flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-orange-400" />
-            <h3 className="text-lg font-bold text-white">서양 철학자 21인 생존 도감</h3>
+            <h3 className="text-lg font-bold text-white">서양 철학자 20인 생존 도감</h3>
           </div>
           <button
             onClick={onClose}
@@ -93,7 +93,7 @@ export const AllPhilosophersModal: React.FC<AllPhilosophersModalProps> = ({ onCl
         {/* Footer */}
         <div className="pt-3 border-t border-neutral-800 text-center">
           <p className="text-[11px] text-neutral-500">
-            총 21명의 사상가가 고교 「윤리와 사상」 서양윤리 핵심 영역을 구성합니다.
+            총 20명의 사상가가 고교 「윤리와 사상」 서양윤리 핵심 영역을 구성합니다.
           </p>
         </div>
       </div>

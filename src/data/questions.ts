@@ -22,7 +22,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r1_opt3',
         text: '문을 열든 닫든 탁상공론은 집어치우고, 창문 로프나 옆 교실 유인 등 제3의 현실적인 탈출 묘수를 당장 실행한다.',
-        weights: { dewey: 5, bacon: 4, peirce_james: 3, aristotle: 2 },
+        weights: { dewey: 4, bacon: 4, aristotle: 3 },
         traitBonuses: { practical: 5, empirical: 4 }
       },
       {
@@ -48,7 +48,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r2_opt2',
         text: '내가 직접 연구하고 싶었던 실험실을 만들거나, 사회의 구체적인 문제를 혁신할 실전 프로젝트 펀드를 설립한다.',
-        weights: { bacon: 5, dewey: 4, peirce_james: 4 },
+        weights: { bacon: 5, dewey: 3, descartes: 3 },
         traitBonuses: { practical: 5, empirical: 4 }
       },
       {
@@ -92,7 +92,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r3_opt4',
         text: '개인을 탓하기 전에, 학생들을 극한의 성적 경쟁으로 내몰아 부정행위를 유발하는 비교육적 평가 방식부터 개선해야 한다.',
-        weights: { dewey: 5, peirce_james: 3, plato: 2 },
+        weights: { dewey: 4, mill: 3, plato: 2 },
         traitBonuses: { practical: 4, empirical: 3 }
       }
     ]
@@ -138,7 +138,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r5_opt1',
         text: '데이터와 확률이 완벽하다면 쓸데없는 인생 낭비와 고통을 줄이기 위해 AI의 최적화 설계를 적극 따른다.',
-        weights: { bacon: 4, spinoza: 4, bentham: 3, peirce_james: 3 },
+        weights: { bacon: 4, spinoza: 4, bentham: 4 },
         traitBonuses: { practical: 5, rational: 3 }
       },
       {
@@ -150,7 +150,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r5_opt3',
         text: 'AI의 조언을 절대 진리로 맹신하진 않되, 나의 성장을 돕는 훌륭한 유용한 도구로 삼아 참고한다.',
-        weights: { dewey: 5, peirce_james: 4, aristotle: 3 },
+        weights: { dewey: 4, aristotle: 4, hume: 2 },
         traitBonuses: { practical: 4, empirical: 4 }
       },
       {
@@ -176,7 +176,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r6_opt2',
         text: '가만히 있으면 거짓이 진실이 된다. 조작된 증거와 타임라인을 낱낱이 파헤치는 반박 팩트 자료를 만들어 논리적으로 박살 낸다.',
-        weights: { descartes: 5, bacon: 4, peirce_james: 3 },
+        weights: { descartes: 5, bacon: 4, socrates: 2 },
         traitBonuses: { rational: 5, practical: 4 }
       },
       {
@@ -252,7 +252,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r8_opt4',
         text: '거창한 도덕보다 당장 물자 배급, 땔감 확보, 생존율 극대화를 최우선으로 하는 유연한 실속형 규칙을 짠다.',
-        weights: { bentham: 4, peirce_james: 4, sophist: 4 },
+        weights: { bentham: 5, sophist: 4, mill: 2 },
         traitBonuses: { practical: 5, happiness: 3 }
       }
     ]
@@ -278,7 +278,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r9_opt3',
         text: '확인하고, 남은 시간에 맞춰 가장 높은 성과와 가치를 창출할 수 있는 철저한 인생 실행 로드맵을 설계한다.',
-        weights: { peirce_james: 4, bacon: 4, dewey: 3 },
+        weights: { bacon: 4, dewey: 2, bentham: 3 },
         traitBonuses: { practical: 5, empirical: 3 }
       },
       {
@@ -304,7 +304,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r10_opt2',
         text: '감정적인 데모 대신, 스마트폰 통제가 학생 성적과 심리에 미치는 실제 영향 데이터를 객관적으로 수집해 교장선생님과 실질적 협상에 들어간다.',
-        weights: { dewey: 5, bacon: 4, peirce_james: 4 },
+        weights: { dewey: 4, bacon: 4, aristotle: 3 },
         traitBonuses: { practical: 5, empirical: 4 }
       },
       {
@@ -374,7 +374,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r12_opt3',
         text: '좌절할 시간에 오답 노트를 펴고 어디서 삐끗했는지 실험하듯 분석하여, 당장 내일부터 적용할 새로운 전술을 실행한다.',
-        weights: { bacon: 4, dewey: 5, peirce_james: 4 },
+        weights: { dewey: 4, bacon: 4, aristotle: 2 },
         traitBonuses: { practical: 5, empirical: 4 }
       },
       {
@@ -412,7 +412,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r13_opt4',
         text: '추상적인 말장난 대신, 세상에 실질적인 쓸모를 증명하고 사람들의 삶을 현실적으로 윤택하게 개선해내는 유능한 삶.',
-        weights: { peirce_james: 5, dewey: 4, bacon: 4 },
+        weights: { dewey: 4, bacon: 4, bentham: 2 },
         traitBonuses: { practical: 5, empirical: 4 }
       }
     ]
@@ -438,7 +438,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r14_opt3',
         text: '우주의 거창한 비밀은 알 수 없지만, 직접 겪고 관찰하며 더 나은 사회를 만들어가는 실천적 과정 자체가 삶의 진리다.',
-        weights: { dewey: 5, bacon: 4, peirce_james: 4 },
+        weights: { dewey: 4, bacon: 4, hume: 3 },
         traitBonuses: { empirical: 5, practical: 4 }
       },
       {
@@ -470,7 +470,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r15_opt3',
         text: '단 0.001%의 생존 가능성이라도 있다면 마지막 1초까지 지하실을 보강하고 비상식량을 모으며 끝까지 포기하지 않는다.',
-        weights: { dewey: 4, bacon: 4, peirce_james: 4 },
+        weights: { dewey: 3, bacon: 4, aristotle: 2 },
         traitBonuses: { practical: 5, empirical: 4 }
       },
       {

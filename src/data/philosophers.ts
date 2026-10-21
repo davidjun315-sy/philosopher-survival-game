@@ -267,20 +267,6 @@ export const PHILOSOPHERS: Record<string, Philosopher> = {
     nemesisId: 'spinoza',
     nemesisReason: '모든 게 자연법칙으로 이미 결정되어 있다는 스피노자의 필연론은 자유를 회피하는 비겁한 변명이라고 여깁니다.'
   },
-  peirce_james: {
-    id: 'peirce_james',
-    name: '퍼스·제임스',
-    era: '미국 실용주의 (19~20세기 초)',
-    nickname: '쓸모 있으면 일단 해보는 실용주의자',
-    shortDesc: '공허한 이론 논쟁은 그만! 실제로 내 삶에 긍정적인 변화와 실천적 효과를 주는 지식이 진짜 진리라고 보는 사람.',
-    traits: { rational: 65, empirical: 90, duty: 45, freedom: 75, happiness: 80, practical: 99 },
-    corePhilosophy: '프래그머티즘(실용주의). 진리의 유용성. 관념의 의미는 그것이 초래하는 실제적 결과와 효과에 있다. 현금 가치(Cash value)가 있는 진리.',
-    whyYouMatch: '당신은 아무리 훌륭해 보이는 말이라도 "그래서 이게 내 인생에 실제로 무슨 도움이 되는데?"를 냉정하게 따져보는 실용주의자입니다. 머릿속 고민으로 시간 낭비하기보다 바로 시험해보고, 효과가 있으면 채택하고 없으면 쿨하게 버립니다. 쓸데없는 낭비를 줄이고 실제 삶을 윤택하게 바꾸는 유능한 현실 해결사입니다.',
-    emoji: '💡',
-    imageUrl: './images/philosophers/peirce_james.jpg',
-    nemesisId: 'plato',
-    nemesisReason: '현실 삶에 아무런 쓸모도 증명하지 못하면서 머릿속 추상적인 이데아만 찬양하는 플라톤의 허상을 참지 못합니다.'
-  },
   dewey: {
     id: 'dewey',
     name: '존 듀이',
