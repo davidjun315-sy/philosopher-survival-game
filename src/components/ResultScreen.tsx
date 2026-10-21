@@ -73,7 +73,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
           끝까지 살아남은 철학자
         </h1>
         <p className="text-xs sm:text-sm text-neutral-400 mt-1">
-          20명의 철학자 중 당신의 선택과 끝까지 함께한 최후의 1인
+          19명의 철학자 중 당신의 선택과 끝까지 함께한 최후의 1인
         </p>
       </div>
 
@@ -346,7 +346,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
           className="w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-medium text-neutral-400 hover:text-white bg-transparent hover:bg-neutral-900 border border-neutral-800/80 transition-colors flex items-center justify-center gap-2"
         >
           <BookOpen className="w-4 h-4" />
-          <span>20명 전체 철학자 도감 확인하기</span>
+          <span>19명 전체 철학자 도감 확인하기</span>
         </button>
       </div>
 

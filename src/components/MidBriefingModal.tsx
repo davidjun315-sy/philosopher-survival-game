@@ -32,7 +32,7 @@ export const MidBriefingModal: React.FC<MidBriefingModalProps> = ({
             ROUND {round} 종료 현황판
           </h3>
           <p className="text-sm text-neutral-400 mt-1">
-            20명 중 현재 <span className="text-orange-400 font-bold">{survivorCount}명</span> 생존 중
+            19명 중 현재 <span className="text-orange-400 font-bold">{survivorCount}명</span> 생존 중
           </p>
         </div>
 

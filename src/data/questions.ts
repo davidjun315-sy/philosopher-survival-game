@@ -22,7 +22,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r1_opt3',
         text: '문을 열든 닫든 탁상공론은 집어치우고, 창문 로프나 옆 교실 유인 등 제3의 현실적인 탈출 묘수를 당장 실행한다.',
-        weights: { dewey: 4, bacon: 4, aristotle: 3 },
+        weights: { dewey: 5, peirce: 3, aristotle: 3 },
         traitBonuses: { practical: 5, empirical: 4 }
       },
       {
@@ -42,25 +42,25 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r2_opt1',
         text: '절대 남에게 티 내지 않고 안전한 곳에 묻어둔 뒤, 평소처럼 조용하고 스트레스 없는 평온한 일상을 지킨다.',
-        weights: { epicurus: 5, spinoza: 4, stoa: 3 },
+        weights: { epicurus: 5, stoa: 3 },
         traitBonuses: { happiness: 5, rational: 3 }
       },
       {
         id: 'r2_opt2',
-        text: '내가 직접 연구하고 싶었던 실험실을 만들거나, 사회의 구체적인 문제를 혁신할 실전 프로젝트 펀드를 설립한다.',
-        weights: { bacon: 5, dewey: 4 },
-        traitBonuses: { practical: 5, empirical: 4 }
+        text: '당장의 나보다, 아직 태어나지도 않은 미래 세대가 살아갈 지구 환경을 지키는 장기 재단을 세운다.',
+        weights: { jonas: 5, dewey: 2 },
+        traitBonuses: { duty: 5, practical: 3, happiness: -1 }
       },
       {
         id: 'r2_opt3',
-        text: '가장 소외되고 고통받는 이웃과 공익 단체에 기부하여 세상 전체의 행복 총량을 키우는 데 쓴다.',
-        weights: { bentham: 5, augustine: 4, aquinas: 3, hume: 3 },
-        traitBonuses: { happiness: 4, duty: 4 }
+        text: '가장 소외되고 고통받는 이웃에게 아낌없이 나누며, 우연히 받은 행운을 사랑으로 되돌려준다.',
+        weights: { augustine: 5, aquinas: 3, gilligan: 3, bentham: 2 },
+        traitBonuses: { duty: 4, empirical: 3, happiness: 2 }
       },
       {
         id: 'r2_opt4',
         text: '남들의 시선이나 사회적 성공 기준에서 완전히 탈출하여, 오직 나만의 진짜 꿈과 실존적 자유를 찾아 떠난다.',
-        weights: { sartre: 5, heidegger: 4, kierkegaard: 3 },
+        weights: { heidegger: 5, sartre: 4, kierkegaard: 2 },
         traitBonuses: { freedom: 5, practical: 2 }
       }
     ]
@@ -74,25 +74,25 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r3_opt1',
         text: '시험의 공정성은 타협할 수 없는 절대 원칙이다. 아무리 절친이라도 원칙대로 선생님께 정직하게 알린다.',
-        weights: { kant: 5, plato: 4, aquinas: 3, hume: -2 },
+        weights: { kant: 5, plato: 4, aquinas: 3, gilligan: -2 },
         traitBonuses: { duty: 5, rational: 3 }
       },
       {
         id: 'r3_opt2',
         text: '시험이 끝난 후 친구를 조용히 불러 "네가 한 짓이 왜 부끄러운지 스스로 깨달았으면 좋겠다"며 자수를 진심으로 설득한다.',
-        weights: { socrates: 5, aristotle: 4, hume: 3 },
+        weights: { socrates: 5, aristotle: 4, gilligan: 3 },
         traitBonuses: { rational: 4, empirical: 3, duty: 2 }
       },
       {
         id: 'r3_opt3',
         text: '친구와의 끈끈한 의리와 친구의 절박한 처지를 감안해, 이번 한 번은 가슴에 묻고 비밀을 지켜준다.',
-        weights: { sophist: 5, hume: 4, kant: -4 },
+        weights: { sophist: 5, kant: -4 },
         traitBonuses: { empirical: 4, practical: 3, duty: -3 }
       },
       {
         id: 'r3_opt4',
         text: '개인을 탓하기 전에, 학생들을 극한의 성적 경쟁으로 내몰아 부정행위를 유발하는 비교육적 평가 방식부터 개선해야 한다.',
-        weights: { dewey: 4, mill: 3, plato: 2 },
+        weights: { dewey: 5, mill: 3, plato: 2 },
         traitBonuses: { practical: 4, empirical: 3 }
       }
     ]
@@ -117,14 +117,14 @@ export const QUESTIONS: Question[] = [
       },
       {
         id: 'r4_opt3',
-        text: '인간은 직접 부딪히고 실패하며 성장할 때 참된 존재가 된다. 기계 조작 환각은 내 영혼을 좀먹을 뿐이다.',
-        weights: { dewey: 4, jaspers: 4, sartre: 4 },
+        text: '인간은 고통과 좌절에 직접 부딪힐 때 비로소 참된 자기가 된다. 기계 조작 환각은 내 영혼을 좀먹을 뿐이다.',
+        weights: { jaspers: 5, dewey: 3, sartre: 2 },
         traitBonuses: { freedom: 5, empirical: 4 }
       },
       {
         id: 'r4_opt4',
         text: '외부 기계에 의존하는 쾌락은 덧없다. 내 마음속 욕망을 다스리고 평정심을 찾는다면 기계 밖에서도 충분히 행복하다.',
-        weights: { stoa: 5, epicurus: 4, spinoza: 3 },
+        weights: { stoa: 5, epicurus: 4 },
         traitBonuses: { rational: 4, happiness: 4 }
       }
     ]
@@ -138,26 +138,26 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r5_opt1',
         text: '데이터와 확률이 완벽하다면 쓸데없는 인생 낭비와 고통을 줄이기 위해 AI의 최적화 설계를 적극 따른다.',
-        weights: { bentham: 5, bacon: 4, spinoza: 2 },
-        traitBonuses: { practical: 5, rational: 3 }
+        weights: { bentham: 5, plato: 2 },
+        traitBonuses: { practical: 5, rational: 3, freedom: -2 }
       },
       {
         id: 'r5_opt2',
         text: '설령 실패하고 파멸하더라도 내 삶의 방향은 오직 내가 고른다! 내 인생에 정해진 각본 따위는 거부한다.',
-        weights: { sartre: 5, kierkegaard: 4, heidegger: 4, spinoza: -3 },
+        weights: { kierkegaard: 5, sartre: 2, heidegger: 3 },
         traitBonuses: { freedom: 5, duty: 1 }
       },
       {
         id: 'r5_opt3',
-        text: 'AI의 조언을 절대 진리로 맹신하진 않되, 나의 성장을 돕는 훌륭한 유용한 도구로 삼아 참고한다.',
-        weights: { dewey: 5, aristotle: 3, hume: 2 },
-        traitBonuses: { practical: 4, empirical: 4 }
+        text: 'AI의 분석을 정답이 아닌 하나의 "가설"로 보고, 실제 내 삶에서 어떤 결과를 낳는지 작게 시험해보며 검증한다.',
+        weights: { peirce: 5, dewey: 3, aristotle: 2 },
+        traitBonuses: { empirical: 4, practical: 4, rational: 2 }
       },
       {
         id: 'r5_opt4',
-        text: 'AI조차 오류나 편견이 있을 수 있다. 이 분석 결과가 과연 도저히 의심할 수 없는 확실한 참인지 전제부터 철저히 파헤친다.',
-        weights: { descartes: 5, socrates: 4 },
-        traitBonuses: { rational: 5, empirical: 2 }
+        text: '아무리 똑똑한 AI라도 인생 전체를 기술에 맡기면 되돌릴 수 없는 위험이 생길 수 있다. 최악의 경우부터 따져보고 신중하게 거리를 둔다.',
+        weights: { jonas: 5, heidegger: 2, socrates: 2 },
+        traitBonuses: { duty: 4, rational: 4 }
       }
     ]
   },
@@ -170,25 +170,25 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r6_opt1',
         text: '남들의 입방아와 비난은 내가 어찌할 수 없는 바깥세상의 바람일 뿐이다. 내 양심의 떳떳함을 믿고 마음을 고요히 다스린다.',
-        weights: { stoa: 5, epicurus: 4, spinoza: 3 },
+        weights: { stoa: 5, epicurus: 3 },
         traitBonuses: { rational: 4, happiness: 4 }
       },
       {
         id: 'r6_opt2',
-        text: '가만히 있으면 거짓이 진실이 된다. 사람들이 떠도는 말에 휘둘리는 편견부터 깨기 위해, 증거와 타임라인을 낱낱이 모아 팩트 자료로 반박한다.',
-        weights: { bacon: 5, descartes: 3, socrates: 2 },
-        traitBonuses: { rational: 5, practical: 4 }
+        text: '가만히 있으면 거짓이 진실이 된다. 증거와 타임라인을 모두 공개해 누구나 직접 검증해볼 수 있게 하고, 사실이 스스로 드러나게 한다.',
+        weights: { peirce: 5, dewey: 2, socrates: 2 },
+        traitBonuses: { rational: 4, empirical: 3, practical: 3 }
       },
       {
         id: 'r6_opt3',
         text: '분노에 찬 사람들의 상처와 불안한 감정을 먼저 헤아리며, 진심 어린 대화와 공감으로 오해의 매듭을 풀어간다.',
-        weights: { hume: 5, aristotle: 3, socrates: 2 },
+        weights: { gilligan: 5, aristotle: 2, socrates: 2 },
         traitBonuses: { empirical: 5, happiness: 2 }
       },
       {
         id: 'r6_opt4',
         text: '이 부당한 벼랑 끝 시련이야말로 진짜 내 곁에 남을 사람과 가짜를 가려내고, 내면의 독립심을 깨우는 전환점이다.',
-        weights: { kierkegaard: 5, jaspers: 4, heidegger: 3 },
+        weights: { kierkegaard: 5, jaspers: 3, heidegger: 3 },
         traitBonuses: { freedom: 5, duty: 2 }
       }
     ]
@@ -207,14 +207,14 @@ export const QUESTIONS: Question[] = [
       },
       {
         id: 'r7_opt2',
-        text: '아무리 찢어지게 아픈 상처라도 그 실패와 경험이 지금의 나를 만들었다. 내 불완전한 역사를 온전히 껴안는다.',
-        weights: { heidegger: 5, aristotle: 4, dewey: 3 },
+        text: '아무리 찢어지게 아픈 상처라도 그 실패와 경험이 쌓여 지금의 내 성품을 만들었다. 내 불완전한 역사를 온전히 껴안는다.',
+        weights: { aristotle: 5, heidegger: 3, dewey: 3 },
         traitBonuses: { empirical: 4, freedom: 4 }
       },
       {
         id: 'r7_opt3',
         text: '그 고통이 왜 생겨났는지 자연의 인과법칙을 냉철하게 이해하면, 굳이 기억을 지우지 않아도 저절로 마음에 평화가 온다.',
-        weights: { spinoza: 5, stoa: 4, descartes: 3 },
+        weights: { stoa: 5, epicurus: 3 },
         traitBonuses: { rational: 5, happiness: 3 }
       },
       {
@@ -234,8 +234,8 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r8_opt1',
         text: '지혜롭고 정의로우며 사리사욕이 없는 가장 뛰어난 리더를 엄선해 전권을 맡기는 것이 혼란을 막는 길이다.',
-        weights: { plato: 5, aquinas: 3, aristotle: 2 },
-        traitBonuses: { rational: 5, duty: 3 }
+        weights: { plato: 5, aquinas: 2, aristotle: 2 },
+        traitBonuses: { rational: 5, duty: 3, freedom: -2 }
       },
       {
         id: 'r8_opt2',
@@ -245,15 +245,15 @@ export const QUESTIONS: Question[] = [
       },
       {
         id: 'r8_opt3',
-        text: '어떤 극한의 재난 속에서도 절대 침해할 수 없는 기본적 인권과 도덕적 절대 원칙(살인·폭력·약탈 금지)을 헌법으로 제정한다.',
-        weights: { kant: 5, aquinas: 4, augustine: 2 },
+        text: '어떤 극한의 재난 속에서도 인간 본성에 새겨진 자연법(살인·폭력·약탈 금지)과 기본 인권을 헌법으로 제정한다.',
+        weights: { aquinas: 5, kant: 4, augustine: 2 },
         traitBonuses: { duty: 5, rational: 3 }
       },
       {
         id: 'r8_opt4',
-        text: '거창한 도덕보다 당장 물자 배급, 땔감 확보, 생존율 극대화를 최우선으로 하는 유연한 실속형 규칙을 짠다.',
-        weights: { bentham: 5, sophist: 4, mill: 2 },
-        traitBonuses: { practical: 5, happiness: 3 }
+        text: '법은 결국 사람들이 합의한 약속일 뿐! 거창한 도덕보다 당장 물자 배급, 땔감 확보, 생존율을 최우선으로 하는 유연한 실속형 규칙을 짠다.',
+        weights: { sophist: 5, bentham: 4 },
+        traitBonuses: { practical: 5, happiness: 3, duty: -2 }
       }
     ]
   },
@@ -272,20 +272,20 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r9_opt2',
         text: '절대 보지 않는다. 죽는 날을 미리 아는 순간 남은 인생은 공포와 불안의 지옥이 된다. 지금 내 앞의 평온한 하루가 우선이다.',
-        weights: { epicurus: 5, spinoza: 3, bentham: 2 },
+        weights: { epicurus: 5, bentham: 2 },
         traitBonuses: { happiness: 5, practical: 2 }
       },
       {
         id: 'r9_opt3',
-        text: '확인하고, 남은 시간 동안 나와 주변 사람들이 누릴 즐거움은 최대로, 고통은 최소로 만들도록 하루하루를 꼼꼼히 계산해 계획한다.',
-        weights: { bentham: 5, mill: 2 },
-        traitBonuses: { happiness: 5, practical: 3 }
+        text: '확인하고, 남은 시간 동안 가족과 친구 한 사람 한 사람에게 필요한 돌봄과 마음을 전하며 소중한 관계를 지켜낸다.',
+        weights: { gilligan: 5, aristotle: 2, augustine: 2 },
+        traitBonuses: { empirical: 5, duty: 2, happiness: 1 }
       },
       {
         id: 'r9_opt4',
         text: '삶과 죽음의 때를 결정하는 것은 인간의 교만이 아닌 절대적 섭리다. 오직 주어진 시간 동안 숭고한 사랑과 의무를 다할 뿐이다.',
         weights: { augustine: 5, aquinas: 4, stoa: 2 },
-        traitBonuses: { duty: 5, rational: 2 }
+        traitBonuses: { duty: 5, rational: 2, freedom: -2 }
       }
     ]
   },
@@ -303,15 +303,15 @@ export const QUESTIONS: Question[] = [
       },
       {
         id: 'r10_opt2',
-        text: '감정적인 데모 대신, 스마트폰 통제가 학생 성적과 심리에 미치는 실제 영향 데이터를 객관적으로 수집해 교장선생님과 실질적 협상에 들어간다.',
-        weights: { dewey: 4, bacon: 4, aristotle: 3 },
-        traitBonuses: { practical: 5, empirical: 4 }
+        text: '감정적인 전면 투쟁도, 무조건적인 순응도 지나치다. 실제 영향 데이터를 근거로 교장선생님과 양쪽 모두 납득할 적절한 선을 찾아 협상한다.',
+        weights: { aristotle: 5, dewey: 3 },
+        traitBonuses: { practical: 4, rational: 3, empirical: 2 }
       },
       {
         id: 'r10_opt3',
         text: '공동체의 질서는 존중되어야 하므로 일단 규칙을 따르면서, 대의 기구와 합법적 절차를 거쳐 품격 있게 개정을 청원한다.',
         weights: { socrates: 5, kant: 4, aquinas: 3, stoa: 2 },
-        traitBonuses: { duty: 4, rational: 4 }
+        traitBonuses: { duty: 4, rational: 4, freedom: -2 }
       },
       {
         id: 'r10_opt4',
@@ -330,25 +330,25 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r11_opt1',
         text: '거짓말은 그 어떤 핑계로도 정당화될 수 없는 절대적 악이다. 아무리 친구가 가련해도 사법 절차에서 위증할 순 없다.',
-        weights: { kant: 5, augustine: 4, aquinas: 3, hume: -3 },
+        weights: { kant: 5, augustine: 4, aquinas: 3, gilligan: -3 },
         traitBonuses: { duty: 5, rational: 3, empirical: -2 }
       },
       {
         id: 'r11_opt2',
         text: '형식적인 도덕 규칙보다 눈앞의 무고한 친구를 살리는 게 백만 배 중요하다! 기꺼이 거짓 알리바이를 대서 친구를 구한다.',
-        weights: { hume: 5, bentham: 4, sophist: 3, kant: -5 },
-        traitBonuses: { empirical: 5, happiness: 3, duty: -3 }
+        weights: { gilligan: 5, bentham: 3, sophist: 3, kant: -5 },
+        traitBonuses: { empirical: 5, happiness: 1, duty: -3 }
       },
       {
         id: 'r11_opt3',
         text: '거짓말은 또 다른 파멸을 부른다. CCTV와 주변 차량 블랙박스를 이 잡듯이 뒤져서 친구의 진짜 무죄를 입증할 결정적 증거를 찾아낸다.',
-        weights: { bacon: 5, dewey: 4, aquinas: 2 },
-        traitBonuses: { rational: 4, practical: 4 }
+        weights: { dewey: 5, peirce: 3, aquinas: 2 },
+        traitBonuses: { empirical: 4, practical: 4 }
       },
       {
         id: 'r11_opt4',
         text: '이 거짓말로 인해 내가 감옥에 가거나 인생이 꼬이더라도, 오직 내 영혼의 결단으로 친구를 지키고 모든 책임을 온몸으로 감수한다.',
-        weights: { kierkegaard: 5, sartre: 4, jaspers: 3 },
+        weights: { kierkegaard: 5, sartre: 2, jaspers: 3 },
         traitBonuses: { freedom: 5, duty: 2 }
       }
     ]
@@ -361,9 +361,9 @@ export const QUESTIONS: Question[] = [
     options: [
       {
         id: 'r12_opt1',
-        text: '모든 일은 이미 일어난 필연적 결과다. 자책이나 분노를 거두고 실패의 원인을 냉철하게 분석하여 마음의 평정을 회복한다.',
-        weights: { spinoza: 5, stoa: 4, descartes: 3 },
-        traitBonuses: { rational: 5, happiness: 3 }
+        text: '좌절과 분노에 휩쓸리는 건 욕망과 감정이 이성을 이긴 탓이다. 이성이 마부처럼 마음의 고삐를 쥐고 내 영혼의 질서를 바로잡는다.',
+        weights: { plato: 5, stoa: 2 },
+        traitBonuses: { rational: 5, duty: 2, empirical: -2 }
       },
       {
         id: 'r12_opt2',
@@ -374,14 +374,14 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r12_opt3',
         text: '좌절할 시간에 오답 노트를 펴고 어디서 삐끗했는지 실험하듯 분석하여, 당장 내일부터 적용할 새로운 전술을 실행한다.',
-        weights: { dewey: 4, bacon: 4, aristotle: 2 },
+        weights: { dewey: 5, peirce: 3, aristotle: 2 },
         traitBonuses: { practical: 5, empirical: 4 }
       },
       {
         id: 'r12_opt4',
         text: '일단 푹 자고 맛있는 걸 먹으며, 믿을 수 있는 가족이나 친구와 따뜻한 온기를 나누며 지친 내 마음을 보듬는다.',
-        weights: { epicurus: 5, hume: 4, aristotle: 2 },
-        traitBonuses: { happiness: 5, empirical: 3 }
+        weights: { gilligan: 5, epicurus: 4 },
+        traitBonuses: { empirical: 5, happiness: 3 }
       }
     ]
   },
@@ -394,7 +394,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r13_opt1',
         text: '남들과의 피곤한 경쟁에서 벗어나, 불안과 걱정이 없고 좋은 벗들과 함께 소박한 일상을 누리는 고요하고 평온한 삶.',
-        weights: { epicurus: 5, stoa: 3, spinoza: 2 },
+        weights: { epicurus: 5, stoa: 3 },
         traitBonuses: { happiness: 5, rational: 3 }
       },
       {
@@ -406,13 +406,13 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r13_opt3',
         text: '사회가 강요하는 성공 잣대에 갇히지 않고, 내가 원하는 삶의 방식을 스스로 창조하며 거침없이 살아가는 자유로운 삶.',
-        weights: { sartre: 5, heidegger: 4, kierkegaard: 3 },
+        weights: { sartre: 5, heidegger: 4, kierkegaard: 2 },
         traitBonuses: { freedom: 5, practical: 2 }
       },
       {
         id: 'r13_opt4',
-        text: '추상적인 말장난 대신, 세상에 실질적인 쓸모를 증명하고 사람들의 삶을 현실적으로 윤택하게 개선해내는 유능한 삶.',
-        weights: { dewey: 4, bacon: 4, bentham: 2 },
+        text: '추상적인 말장난 대신, 생각과 아이디어의 진짜 의미를 실제 결과로 증명하며 사람들의 삶을 현실적으로 개선해내는 유능한 삶.',
+        weights: { peirce: 5, dewey: 3 },
         traitBonuses: { practical: 5, empirical: 4 }
       }
     ]
@@ -425,9 +425,9 @@ export const QUESTIONS: Question[] = [
     options: [
       {
         id: 'r14_opt1',
-        text: '우주와 세상의 모든 일은 거대한 자연의 법칙과 필연적인 인과관계에 따라 한 치의 오차 없이 흘러가고 있다.',
-        weights: { spinoza: 5, stoa: 4 },
-        traitBonuses: { rational: 5, happiness: 2 }
+        text: '인간은 이제 기술로 자연과 미래 전체를 바꿀 만큼 강해졌다. 그 힘이 큰 만큼, 아직 오지 않은 미래와 자연까지 책임져야 한다.',
+        weights: { jonas: 5, kant: 2 },
+        traitBonuses: { duty: 5, rational: 3 }
       },
       {
         id: 'r14_opt2',
@@ -437,15 +437,15 @@ export const QUESTIONS: Question[] = [
       },
       {
         id: 'r14_opt3',
-        text: '우주의 거창한 비밀은 알 수 없지만, 직접 겪고 관찰하며 더 나은 사회를 만들어가는 실천적 과정 자체가 삶의 진리다.',
-        weights: { dewey: 4, bacon: 4, hume: 3 },
-        traitBonuses: { empirical: 5, practical: 4 }
+        text: '우주의 거창한 비밀을 한 번에 알 수는 없지만, 사람들이 함께 탐구하고 검증을 거듭하다 보면 진리에 조금씩 다가갈 수 있다.',
+        weights: { peirce: 5, dewey: 3 },
+        traitBonuses: { empirical: 4, rational: 4, practical: 2 }
       },
       {
         id: 'r14_opt4',
-        text: '인간의 미천한 지혜를 내려놓고, 우주를 초월하여 존재하는 영원한 진리와 거룩한 사랑의 섭리에 겸허히 귀의한다.',
-        weights: { augustine: 5, kierkegaard: 3, aquinas: 3, plato: 2 },
-        traitBonuses: { duty: 5, rational: 3 }
+        text: '이성으로 자연의 질서를 깊이 탐구하다 보면, 그 끝에서 세상을 이끄는 영원한 법과 신의 섭리를 만나게 된다.',
+        weights: { aquinas: 5, augustine: 3, plato: 2 },
+        traitBonuses: { duty: 4, rational: 4 }
       }
     ]
   },
@@ -458,7 +458,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r15_opt1',
         text: '패닉에 휩쓸리지 않고, 평생 아꼈던 이들에게 감사와 사랑을 전하며 우주의 섭리를 고요하고 담담하게 수용한다.',
-        weights: { stoa: 5, epicurus: 4, spinoza: 4 },
+        weights: { stoa: 5, epicurus: 4, socrates: 2 },
         traitBonuses: { rational: 4, happiness: 4 }
       },
       {
@@ -469,14 +469,14 @@ export const QUESTIONS: Question[] = [
       },
       {
         id: 'r15_opt3',
-        text: '마지막 1초까지 사람들과 머리를 맞대고 소행성 궤도를 관측·분석하며, 단 0.001%의 생존 가능성이라도 찾아내 실행한다.',
-        weights: { bacon: 5, dewey: 4 },
-        traitBonuses: { practical: 5, empirical: 4 }
+        text: '나 하나 살아남는 것보다 인류가 어딘가에서 다시 이어지는 것이 중요하다. 마지막 1초까지 다음 세대를 위한 지식과 씨앗을 지하 저장고에 남긴다.',
+        weights: { jonas: 5, dewey: 2 },
+        traitBonuses: { duty: 5, practical: 4 }
       },
       {
         id: 'r15_opt4',
         text: '도망치지 않고 죽음을 정면으로 응시하며, 내 모든 선택으로 완성된 나의 유일무이한 인생을 온전히 긍정하는 마지막 글을 남긴다.',
-        weights: { heidegger: 5, sartre: 5, kierkegaard: 4 },
+        weights: { heidegger: 5, sartre: 4, kierkegaard: 2 },
         traitBonuses: { freedom: 5, duty: 2 }
       }
     ]

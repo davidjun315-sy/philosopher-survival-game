@@ -82,8 +82,8 @@ export const PHILOSOPHERS: Record<string, Philosopher> = {
     whyYouMatch: '어떤 극한의 재난이나 억울한 상황이 닥쳐도 당신은 멘탈이 쉽게 무너지지 않는 단단함을 지녔습니다. 세상의 모든 일을 내 뜻대로 바꿀 수 없다는 사실을 쿨하게 인정하고, 오직 내가 선택할 수 있는 태도와 마인드 컨트롤에 집중합니다. 외부의 풍파 속에서도 흔들림 없는 평정을 지키는 궁극의 생존자입니다.',
     emoji: '🛡️',
     imageUrl: './images/philosophers/stoa.jpg',
-    nemesisId: 'hume',
-    nemesisReason: '순간적인 감정과 충동의 파도에 온몸을 맡기라는 흄의 주장을 당신은 위험천만하다고 봅니다.'
+    nemesisId: 'sartre',
+    nemesisReason: '운명 따위는 없고 모든 것을 스스로 만들어야 한다는 사르트르의 태도는, 내가 바꿀 수 없는 것까지 붙잡고 괴로워하는 길이라고 봅니다.'
   },
   augustine: {
     id: 'augustine',
@@ -112,62 +112,6 @@ export const PHILOSOPHERS: Record<string, Philosopher> = {
     imageUrl: './images/philosophers/aquinas.jpg',
     nemesisId: 'sophist',
     nemesisReason: '논리와 기준을 오직 자기 유리한 말장난으로만 써먹는 소피스트의 태도를 가장 불성실하다고 평가합니다.'
-  },
-  descartes: {
-    id: 'descartes',
-    name: '르네 데카르트',
-    era: '근대 합리론 (17세기)',
-    nickname: '일단 의심부터 하는 분석가',
-    shortDesc: '모두가 당연하다고 믿는 상식마저 철저히 검증하여, 도저히 의심할 수 없는 확실한 진리를 찾는 사람.',
-    traits: { rational: 99, empirical: 30, duty: 70, freedom: 75, happiness: 45, practical: 50 },
-    corePhilosophy: '방법적 회의(의심할 수 있는 모든 것을 의심하라). "나는 생각한다, 고로 존재한다(Cogito ergo sum)". 명석판명한 이성적 연역.',
-    whyYouMatch: '당신은 남들이 "다들 원래 그래"라고 말할 때 눈 하나 깜짝하지 않고 "그게 왜 진짜 맞는데?"라고 따져 묻는 날카로운 두뇌를 가졌습니다. 어떤 가짜 뉴스나 군중심리에도 현혹되지 않으며, 도저히 반박할 수 없는 확실한 근거가 나올 때까지 철저하게 검증합니다. 맑고 투명한 논리의 세계를 구축하는 합리주의자입니다.',
-    emoji: '🔍',
-    imageUrl: './images/philosophers/descartes.jpg',
-    nemesisId: 'bacon',
-    nemesisReason: '직접 눈으로 보고 만져보지 않은 논리는 헛소리 취급하는 베이컨의 단순 경험주의가 어설프다고 생각합니다.'
-  },
-  spinoza: {
-    id: 'spinoza',
-    name: '바뤼흐 스피노자',
-    era: '근대 합리론 (17세기)',
-    nickname: '세상의 원인을 찾는 필연론자',
-    shortDesc: '우주 만물이 거대한 자연의 법칙과 필연성 속에 있음을 이해하고, 지적인 평온을 누리는 사람.',
-    traits: { rational: 95, empirical: 35, duty: 65, freedom: 70, happiness: 85, practical: 50 },
-    corePhilosophy: '범신론(신 즉 자연). 우주의 모든 일은 필연적 법칙에 의해 발생함. 최고선은 자연의 필연성을 직관지로 인식하는 신에 대한 지적 사랑.',
-    whyYouMatch: '당신은 화가 나거나 슬픈 일이 생겼을 때 분노하기보다 "왜 이런 일이 일어났을까?" 원인과 인과관계를 차분히 꿰뚫어 봅니다. 세상의 모든 사건에는 저마다의 필연적 이유가 있음을 알기에 남을 탓하거나 증오하지 않습니다. 거대한 우주의 시선에서 삶을 관조하며 지적인 자유와 평화를 누리는 현자입니다.',
-    emoji: '🪐',
-    imageUrl: './images/philosophers/spinoza.jpg',
-    nemesisId: 'kierkegaard',
-    nemesisReason: '불안에 떨며 비이성적인 단독자로서의 도약을 요구하는 키르케고르의 방식이 비합리적 감정 과잉으로 보입니다.'
-  },
-  bacon: {
-    id: 'bacon',
-    name: '프랜시스 베이컨',
-    era: '근대 경험론 (17세기)',
-    nickname: '직접 해봐야 믿는 실험러',
-    shortDesc: '방구석 탁상공론을 집어치우고, 직접 관찰하고 실험하여 현실을 바꾸는 힘을 증명하려는 사람.',
-    traits: { rational: 60, empirical: 98, duty: 50, freedom: 65, happiness: 60, practical: 96 },
-    corePhilosophy: '아는 것이 힘이다. 네 가지 우상(종족, 동굴, 시장, 극장) 타파. 관찰과 실험을 통한 귀납법으로 인류 복지 증진.',
-    whyYouMatch: '당신은 말만 번지르르한 이론보다는 "그래서 실제로 해봤어? 증거가 있어?"를 제일 먼저 묻는 행동파 실증주의자입니다. 선입견이나 낡은 편견에 갇히는 것을 극도로 싫어하며, 새로운 데이터를 직접 수집하고 검증해 현실을 개선합니다. 세상을 더 살기 좋은 곳으로 만드는 실질적인 파워를 신뢰합니다.',
-    emoji: '🔬',
-    imageUrl: './images/philosophers/bacon.jpg',
-    nemesisId: 'plato',
-    nemesisReason: '보이지도 않는 이상세계(이데아) 타령만 하며 현실의 구체적인 데이터를 외면하는 플라톤이 답답합니다.'
-  },
-  hume: {
-    id: 'hume',
-    name: '데이비드 흄',
-    era: '근대 경험론 (18세기)',
-    nickname: '사람 마음부터 보는 공감파',
-    shortDesc: '차가운 이성은 감정의 노예일 뿐! 타인의 아픔을 함께 느끼는 따뜻한 공감이야말로 도덕의 뿌리라고 보는 사람.',
-    traits: { rational: 50, empirical: 95, duty: 40, freedom: 70, happiness: 80, practical: 75 },
-    corePhilosophy: '이성은 감정의 노예. 도덕의 기초는 이성적 판단이 아닌 쾌/불쾌의 도덕감과 타인에 대한 공감(Sympathy). 유용성의 감정.',
-    whyYouMatch: '당신은 수학 공식 같은 도덕 규범보다 살아 숨 쉬는 사람들의 감정과 따뜻한 마음에 먼저 반응합니다. 곤경에 처한 친구를 보면 내 일처럼 가슴이 아프고, 함께 웃고 우는 공감 능력이 가장 강력한 무기입니다. 복잡한 논쟁을 벌이기보다 모두가 기분 좋고 상처받지 않는 화합의 공간을 만들어내는 다정한 매력의 소유자입니다.',
-    emoji: '❤️',
-    imageUrl: './images/philosophers/hume.jpg',
-    nemesisId: 'descartes',
-    nemesisReason: '사람의 살아있는 감정을 무시하고 기계 부품 분해하듯 논리만 들이대는 데카르트의 차가움이 불편합니다.'
   },
   kant: {
     id: 'kant',
@@ -264,8 +208,22 @@ export const PHILOSOPHERS: Record<string, Philosopher> = {
     whyYouMatch: '당신은 그 어떤 권위나 부모님, 선생님의 말에도 내 인생의 운전대를 넘겨주지 않는 완벽한 독립심의 소유자입니다. "환경 탓, 핑계"를 대지 않고, 오직 내가 직접 내린 선택을 온몸으로 감당하며 스스로의 정체성을 개척합니다. 어떤 틀에도 얽매이지 않고 세상을 무대로 자유롭게 살아 숨 쉬는 당당한 주인공입니다.',
     emoji: '🔥',
     imageUrl: './images/philosophers/sartre.jpg',
-    nemesisId: 'spinoza',
-    nemesisReason: '모든 게 자연법칙으로 이미 결정되어 있다는 스피노자의 필연론은 자유를 회피하는 비겁한 변명이라고 여깁니다.'
+    nemesisId: 'stoa',
+    nemesisReason: '모든 일이 우주의 섭리로 정해져 있으니 담담히 받아들이라는 스토아학파의 태도는, 자유와 책임을 회피하는 변명처럼 느껴집니다.'
+  },
+  peirce: {
+    id: 'peirce',
+    name: '찰스 샌더스 퍼스',
+    era: '미국 실용주의 (19세기)',
+    nickname: '일단 검증해봐야 믿는 탐구자',
+    shortDesc: '생각의 진짜 의미는 그것이 실제로 낳는 결과에 있다! 믿음을 끊임없이 시험하고 고쳐가며 진리에 다가가는 사람.',
+    traits: { rational: 85, empirical: 85, duty: 50, freedom: 60, happiness: 55, practical: 90 },
+    corePhilosophy: '실용주의(프래그머티즘)의 창시자. 관념의 의미는 그 관념이 가져오는 실제적 결과에 있다. 모든 지식은 틀릴 수 있으며(오류가능주의), 탐구 공동체의 끊임없는 검증을 통해 진리에 다가간다.',
+    whyYouMatch: '당신은 그럴듯한 말보다 "그래서 실제로 무엇이 달라지는데?"를 먼저 묻는 냉철한 탐구자입니다. 어떤 생각이든 정답으로 못 박기보다 하나의 가설로 두고, 직접 시험해보고 결과를 확인하며 고쳐나갑니다. 혼자 확신하기보다 여러 사람이 함께 검증할 때 진리에 가까워진다고 믿는 열린 사고의 소유자입니다.',
+    emoji: '🔬',
+    imageUrl: './images/philosophers/peirce.svg',
+    nemesisId: 'kierkegaard',
+    nemesisReason: '"진리는 주체성"이라며 누구도 함께 검증할 수 없는 내면의 결단을 앞세우는 키르케고르의 태도는 불안하게 느껴집니다.'
   },
   dewey: {
     id: 'dewey',
@@ -278,9 +236,37 @@ export const PHILOSOPHERS: Record<string, Philosopher> = {
     whyYouMatch: '당신은 위기 상황이 닥쳤을 때 불평하거나 좌절하지 않고, 소매를 걷어붙이며 "자, 이제 어떻게 이 문제를 해결할까?"라며 사람들을 모으는 최고의 행동파입니다. 지식은 현실의 문제를 풀기 위한 도구일 뿐이며, 직접 부딪히고 실패해보는 경험 속에서만 진짜 배움이 일어난다고 믿습니다. 함께 성장하는 사회를 만드는 실천적 리더입니다.',
     emoji: '🛠️',
     imageUrl: './images/philosophers/dewey.jpg',
-    nemesisId: 'descartes',
-    nemesisReason: '방구석 난로 옆에 앉아서 의심만 하고 행동하지 않는 데카르트의 회의론은 현실에 아무런 도움이 안 된다고 봅니다.'
-  }
+    nemesisId: 'plato',
+    nemesisReason: '변하지 않는 이데아만 바라보며 눈앞의 현실 문제 해결을 뒤로 미루는 플라톤의 방식은 공허하다고 봅니다.'
+  },
+  jonas: {
+    id: 'jonas',
+    name: '한스 요나스',
+    era: '책임 윤리 (20세기)',
+    nickname: '미래 세대까지 챙기는 책임 지킴이',
+    shortDesc: '인간의 기술이 강해진 만큼, 아직 태어나지 않은 미래 세대와 자연까지 책임져야 한다고 믿는 사람.',
+    traits: { rational: 85, empirical: 60, duty: 98, freedom: 50, happiness: 45, practical: 75 },
+    corePhilosophy: '책임 윤리. 현대 과학 기술의 힘은 먼 미래와 자연 전체에 영향을 미치므로, 윤리의 범위를 미래 세대와 자연으로 넓혀야 한다. 최악의 결과를 먼저 예견하는 "공포의 발견술"과 "인류는 존재해야 한다"는 명령.',
+    whyYouMatch: '당신은 눈앞의 이익이나 편리함보다 "이 선택이 10년, 100년 뒤에는 어떤 결과를 낳을까?"를 먼저 생각하는 사람입니다. 아직 목소리를 낼 수 없는 미래 세대와 자연까지 내가 지켜야 할 대상으로 여기며, 되돌릴 수 없는 위험 앞에서는 과감함보다 신중함을 택합니다. 더 큰 힘에는 더 큰 책임이 따른다는 것을 아는 든든한 수호자입니다.',
+    emoji: '🌍',
+    imageUrl: './images/philosophers/jonas.svg',
+    nemesisId: 'epicurus',
+    nemesisReason: '세상일에 얽매이지 말고 지금 내 마음의 평온만 지키라는 에피쿠로스의 태도는, 다음 세대에 대한 책임을 외면하는 것처럼 보입니다.'
+  },
+  gilligan: {
+    id: 'gilligan',
+    name: '캐럴 길리건',
+    era: '배려 윤리 (20세기)',
+    nickname: '관계 속 마음을 먼저 살피는 배려러',
+    shortDesc: '추상적인 원칙보다, 지금 내 앞에 있는 사람의 상황과 마음에 응답하는 것이 진짜 도덕이라고 믿는 사람.',
+    traits: { rational: 55, empirical: 95, duty: 70, freedom: 55, happiness: 75, practical: 70 },
+    corePhilosophy: '배려 윤리. 정의와 권리 중심의 도덕 발달 이론(콜버그)을 비판하며, 관계 속의 배려와 책임, 구체적 상황에 대한 공감 역시 중요한 도덕적 목소리임을 강조.',
+    whyYouMatch: '당신은 규칙이 무엇을 말하는지보다 "지금 이 사람에게 무엇이 필요할까?"를 먼저 떠올리는 따뜻한 사람입니다. 누군가 상처받을 수 있는 상황에서는 옳고 그름을 따지기 전에 관계와 마음을 먼저 살피고, 아무도 소외되지 않는 길을 찾으려 합니다. 사람과 사람 사이를 이어주는 공동체의 든든한 버팀목입니다.',
+    emoji: '🤝',
+    imageUrl: './images/philosophers/gilligan.svg',
+    nemesisId: 'kant',
+    nemesisReason: '상황과 관계를 따지지 않고 보편적 원칙만 지키라는 칸트의 엄격함은, 눈앞의 사람이 겪는 아픔을 외면하는 것처럼 느껴집니다.'
+  },
 };
 
 export const PHILOSOPHER_LIST = Object.values(PHILOSOPHERS);

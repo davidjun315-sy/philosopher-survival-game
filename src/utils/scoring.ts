@@ -42,6 +42,27 @@ function getBaselines(maxRound: number) {
   return baselines;
 }
 
+// 성향 지수에서 표준편차 1만큼 치우쳤을 때 50에서 벌어지는 점수 폭
+const TRAIT_SPREAD = 17;
+
+// 6대 성향별 "무작위로 답했을 때"의 보너스 합 평균·표준편차
+function getTraitBaselines() {
+  const keys = Object.keys(TRAIT_LABELS) as TraitKey[];
+  const baselines = {} as Record<TraitKey, { mean: number; sd: number }>;
+  keys.forEach((key) => {
+    let mean = 0;
+    let variance = 0;
+    QUESTIONS.forEach((q) => {
+      const bs = q.options.map((o) => o.traitBonuses[key] ?? 0);
+      const avg = bs.reduce((a, b) => a + b, 0) / bs.length;
+      mean += avg;
+      variance += bs.reduce((a, b) => a + (b - avg) ** 2, 0) / bs.length;
+    });
+    baselines[key] = { mean, sd: Math.sqrt(variance) };
+  });
+  return baselines;
+}
+
 // 원점수(기본 100 + 가중치 × 4)를 표준점수로 변환
 function toMatchIndex(score: number, baseline: { mean: number; sd: number }) {
   if (baseline.sd === 0) return 0;
@@ -55,14 +76,14 @@ export function calculateGameResults(selectedAnswers: Record<number, string>): S
     scores[p.id] = 100;
   });
 
-  // 2. 6대 성향 누적
+  // 2. 6대 성향 누적 (선택한 답의 보너스 원점수 합)
   const traits: TraitScore = {
-    rational: 30,
-    empirical: 30,
-    duty: 30,
-    freedom: 30,
-    happiness: 30,
-    practical: 30,
+    rational: 0,
+    empirical: 0,
+    duty: 0,
+    freedom: 0,
+    happiness: 0,
+    practical: 0,
   };
 
   QUESTIONS.forEach((q) => {
@@ -84,7 +105,7 @@ export function calculateGameResults(selectedAnswers: Record<number, string>): S
       Object.entries(opt.traitBonuses).forEach(([k, bonus]) => {
         const key = k as TraitKey;
         if (traits[key] !== undefined && bonus !== undefined) {
-          traits[key] += bonus * 3.5;
+          traits[key] += bonus;
         }
       });
     }
@@ -109,15 +130,15 @@ export function calculateGameResults(selectedAnswers: Record<number, string>): S
   const thirdPlace = ranked[2];
   const nemesis = ranked[ranked.length - 1];
 
-  // 4. 스탯 정규화 (최소 20 ~ 최대 98 사이로 보기 좋게 매핑)
-  const normalizedTraits: TraitScore = {
-    rational: Math.min(99, Math.max(25, Math.round(traits.rational))),
-    empirical: Math.min(99, Math.max(25, Math.round(traits.empirical))),
-    duty: Math.min(99, Math.max(25, Math.round(traits.duty))),
-    freedom: Math.min(99, Math.max(25, Math.round(traits.freedom))),
-    happiness: Math.min(99, Math.max(25, Math.round(traits.happiness))),
-    practical: Math.min(99, Math.max(25, Math.round(traits.practical))),
-  };
+  // 4. 스탯 정규화: 무작위로 답했을 때의 평균을 50으로 두고, 그보다 얼마나 치우쳤는지로 0~100에 매핑
+  // (모든 보너스를 단순 누적하면 모든 성향이 함께 올라가 높고 낮음이 드러나지 않음)
+  const traitBaselines = getTraitBaselines();
+  const normalizedTraits = {} as TraitScore;
+  (Object.keys(traits) as TraitKey[]).forEach((key) => {
+    const { mean, sd } = traitBaselines[key];
+    const z = sd === 0 ? 0 : (traits[key] - mean) / sd;
+    normalizedTraits[key] = Math.min(99, Math.max(5, Math.round(50 + z * TRAIT_SPREAD)));
+  });
 
   // 5. 고유 공유 코드 생성 (예: PHIL-KANT-8842)
   const topPhilCode = winner.id.toUpperCase().slice(0, 4);
@@ -169,7 +190,7 @@ export function getMidRoundBriefing(
     score: toMatchIndex(partialScores[p.id], baselines[p.id]),
   })).sort((a, b) => b.score - a.score);
 
-  let survivorCount = 20;
+  let survivorCount = 19;
   let briefingTitle = '';
 
   if (round === 4) {

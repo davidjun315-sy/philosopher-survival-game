@@ -36,7 +36,7 @@ export function App() {
 
   // 생존 추정 인원수 (라운드 진행에 따른 시각적 카운트다운 연출)
   const getEstimatedSurvivors = (round: number) => {
-    if (round <= 4) return 20;
+    if (round <= 4) return 19;
     if (round <= 8) return 18;
     if (round <= 12) return 14;
     if (round < 15) return 8;

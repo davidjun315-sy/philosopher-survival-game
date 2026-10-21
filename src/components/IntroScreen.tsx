@@ -46,7 +46,7 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ onStart, onOpenEncyclo
           <div className="flex items-start gap-3">
             <ShieldAlert className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
             <p className="text-sm text-neutral-300 leading-relaxed">
-              서양 철학자 <span className="text-orange-400 font-bold">20명</span>이 한 공간에 모였다.
+              서양 철학자 <span className="text-orange-400 font-bold">19명</span>이 한 공간에 모였다.
               하지만 철학 세계에 정체불명의 재난이 발생했다.
             </p>
           </div>
@@ -89,7 +89,7 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ onStart, onOpenEncyclo
           className="w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-medium text-neutral-400 hover:text-neutral-200 bg-neutral-900/60 hover:bg-neutral-800/60 border border-neutral-800 active:scale-[0.99] transition-colors flex items-center justify-center gap-1.5"
         >
           <BookOpen className="w-4 h-4 text-neutral-400" />
-          <span>20명 철학자 도감 열람하기</span>
+          <span>19명 철학자 도감 열람하기</span>
         </button>
 
         <div className="flex items-center justify-between text-[11px] text-neutral-500 pt-1 px-1">
