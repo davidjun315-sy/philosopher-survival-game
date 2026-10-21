@@ -221,7 +221,7 @@ export const PHILOSOPHERS: Record<string, Philosopher> = {
     corePhilosophy: '실용주의(프래그머티즘)의 창시자. 관념의 의미는 그 관념이 가져오는 실제적 결과에 있다. 모든 지식은 틀릴 수 있으며(오류가능주의), 탐구 공동체의 끊임없는 검증을 통해 진리에 다가간다.',
     whyYouMatch: '당신은 그럴듯한 말보다 "그래서 실제로 무엇이 달라지는데?"를 먼저 묻는 냉철한 탐구자입니다. 어떤 생각이든 정답으로 못 박기보다 하나의 가설로 두고, 직접 시험해보고 결과를 확인하며 고쳐나갑니다. 혼자 확신하기보다 여러 사람이 함께 검증할 때 진리에 가까워진다고 믿는 열린 사고의 소유자입니다.',
     emoji: '🔬',
-    imageUrl: './images/philosophers/peirce.svg',
+    imageUrl: './images/philosophers/peirce.jpg',
     nemesisId: 'kierkegaard',
     nemesisReason: '"진리는 주체성"이라며 누구도 함께 검증할 수 없는 내면의 결단을 앞세우는 키르케고르의 태도는 불안하게 느껴집니다.'
   },
@@ -249,7 +249,7 @@ export const PHILOSOPHERS: Record<string, Philosopher> = {
     corePhilosophy: '책임 윤리. 현대 과학 기술의 힘은 먼 미래와 자연 전체에 영향을 미치므로, 윤리의 범위를 미래 세대와 자연으로 넓혀야 한다. 최악의 결과를 먼저 예견하는 "공포의 발견술"과 "인류는 존재해야 한다"는 명령.',
     whyYouMatch: '당신은 눈앞의 이익이나 편리함보다 "이 선택이 10년, 100년 뒤에는 어떤 결과를 낳을까?"를 먼저 생각하는 사람입니다. 아직 목소리를 낼 수 없는 미래 세대와 자연까지 내가 지켜야 할 대상으로 여기며, 되돌릴 수 없는 위험 앞에서는 과감함보다 신중함을 택합니다. 더 큰 힘에는 더 큰 책임이 따른다는 것을 아는 든든한 수호자입니다.',
     emoji: '🌍',
-    imageUrl: './images/philosophers/jonas.svg',
+    imageUrl: './images/philosophers/jonas.jpg',
     nemesisId: 'epicurus',
     nemesisReason: '세상일에 얽매이지 말고 지금 내 마음의 평온만 지키라는 에피쿠로스의 태도는, 다음 세대에 대한 책임을 외면하는 것처럼 보입니다.'
   },
@@ -263,7 +263,7 @@ export const PHILOSOPHERS: Record<string, Philosopher> = {
     corePhilosophy: '배려 윤리. 정의와 권리 중심의 도덕 발달 이론(콜버그)을 비판하며, 관계 속의 배려와 책임, 구체적 상황에 대한 공감 역시 중요한 도덕적 목소리임을 강조.',
     whyYouMatch: '당신은 규칙이 무엇을 말하는지보다 "지금 이 사람에게 무엇이 필요할까?"를 먼저 떠올리는 따뜻한 사람입니다. 누군가 상처받을 수 있는 상황에서는 옳고 그름을 따지기 전에 관계와 마음을 먼저 살피고, 아무도 소외되지 않는 길을 찾으려 합니다. 사람과 사람 사이를 이어주는 공동체의 든든한 버팀목입니다.',
     emoji: '🤝',
-    imageUrl: './images/philosophers/gilligan.svg',
+    imageUrl: './images/philosophers/gilligan.jpg',
     nemesisId: 'kant',
     nemesisReason: '상황과 관계를 따지지 않고 보편적 원칙만 지키라는 칸트의 엄격함은, 눈앞의 사람이 겪는 아픔을 외면하는 것처럼 느껴집니다.'
   },

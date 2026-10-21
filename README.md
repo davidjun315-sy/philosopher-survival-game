@@ -126,3 +126,15 @@ npm run build
 1. [Vercel](https://vercel.com)에 로그인 후 GitHub 저장소 임포트
 2. 프레임워크 프리셋을 **Vite**로 선택하고 `Deploy` 클릭
 3. 1분 만에 고유 접속 URL(`https://xxx.vercel.app`)이 발급되며 즉시 수업에 사용 가능합니다.
+
+---
+
+## 📷 7. 사진 출처
+
+아래 사상가 사진은 위키미디어 공용(Wikimedia Commons)에서 가져와 가로 500px로 축소해 사용했습니다.
+
+| 사상가 | 파일 (`public/images/philosophers/`) | 원본 | 저작자 | 라이선스 |
+| :--- | :--- | :--- | :--- | :--- |
+| 찰스 샌더스 퍼스 | `peirce.jpg` | [Charles Sanders Peirce.jpg](https://commons.wikimedia.org/wiki/File:Charles_Sanders_Peirce.jpg) | Napoleon Sarony (1891) | 퍼블릭 도메인 |
+| 한스 요나스 | `jonas.jpg` | [Hans Jonas an der Universität St. Gallen (1983) HSGH 022-001945 (cropped 2).jpg](https://commons.wikimedia.org/wiki/File:Hans_Jonas_an_der_Universit%C3%A4t_St._Gallen_(1983)_HSGH_022-001945_(cropped_2).jpg) | Regina Kühne | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| 캐럴 길리건 | `gilligan.jpg` | [Carol Gilligan P1010970 - cropped.jpg](https://commons.wikimedia.org/wiki/File:Carol_Gilligan_P1010970_-_cropped.jpg) | Deror avi (cropped by Ravit) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
