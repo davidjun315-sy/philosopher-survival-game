@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { X, Download, Share2, Check, Sparkles, Trophy } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { X, Download, Share2, Sparkles, Trophy } from 'lucide-react';
 import { ScoreResult, TRAIT_LABELS } from '../utils/scoring';
 import { PHILOSOPHERS } from '../data/philosophers';
 import { TraitKey } from '../types';
@@ -10,19 +10,19 @@ interface SharePhotoCardModalProps {
 }
 
 export const SharePhotoCardModal: React.FC<SharePhotoCardModalProps> = ({ result, onClose }) => {
-  const [downloading, setDownloading] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [cardFile, setCardFile] = useState<File | null>(null);
+  const [generateFailed, setGenerateFailed] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const winner = PHILOSOPHERS[result.winnerId];
   const traitEntries = Object.entries(result.normalizedTraits) as [TraitKey, number][];
+  const fileName = `철학자생존게임_${winner.name}_결과카드.png`;
 
-  // HTML5 Canvas를 이용해 카드를 고해상도 PNG 이미지로 직접 생성하여 다운로드
-  const handleDownloadImage = async () => {
-    setDownloading(true);
+  // HTML5 Canvas를 이용해 카드를 고해상도 PNG 이미지 파일로 직접 생성
+  const createCardFile = async (): Promise<File | null> => {
     try {
       const card = cardRef.current;
-      if (!card) return;
+      if (!card) return null;
 
       const canvas = document.createElement('canvas');
       const scale = 2; // 고해상도 레티나 지원
@@ -31,7 +31,7 @@ export const SharePhotoCardModal: React.FC<SharePhotoCardModalProps> = ({ result
       canvas.width = width * scale;
       canvas.height = height * scale;
       const ctx = canvas.getContext('2d');
-      if (!ctx) return;
+      if (!ctx) return null;
 
       ctx.scale(scale, scale);
 
@@ -169,37 +169,54 @@ export const SharePhotoCardModal: React.FC<SharePhotoCardModalProps> = ({ result
       ctx.textAlign = 'right';
       ctx.fillText('고교 윤리와 사상 입문 웹게임', width - 35, 552);
 
-      // 다운로드 트리거
-      const link = document.createElement('a');
-      link.download = `철학자생존게임_${winner.name}_결과카드.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+      const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/png'));
+      if (!blob) return null;
+      return new File([blob], fileName, { type: 'image/png' });
     } catch (e) {
       console.error(e);
-      alert('이미지 생성 중 오류가 발생했습니다. 화면을 캡처해서 사용하실 수도 있습니다!');
-    } finally {
-      setDownloading(false);
+      return null;
     }
   };
 
-  const handleShareText = () => {
-    const text = `[철학자 생존게임 결과]\n🥇 최후의 생존 사상가: ${winner.name} (“${winner.nickname}”)\n💬 "${winner.shortDesc}"\n고유 코드: ${result.shareCode}\n너의 생존 철학자는 누구야?`;
-    if (navigator.share) {
-      navigator.share({
-        title: `철학자 생존게임 결과 - ${winner.name}`,
-        text: text,
-        url: window.location.href,
-      }).catch(() => {
-        navigator.clipboard.writeText(text);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+  // 모달이 열리면 미리 이미지를 만들어 둔다 (모바일 공유 시트는 클릭 직후에 바로 호출해야 열림)
+  useEffect(() => {
+    let cancelled = false;
+    createCardFile().then((file) => {
+      if (cancelled) return;
+      if (file) setCardFile(file);
+      else setGenerateFailed(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const handleDownloadImage = () => {
+    if (!cardFile) return;
+    const url = URL.createObjectURL(cardFile);
+    const link = document.createElement('a');
+    link.download = fileName;
+    link.href = url;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+
+  // 이미지 파일 자체를 공유 (글 공유 없음). 파일 공유를 지원하지 않는 브라우저는 이미지 저장으로 대체
+  const handleShareImage = () => {
+    if (!cardFile) return;
+    const shareData = { files: [cardFile] };
+    if (navigator.canShare && navigator.canShare(shareData)) {
+      navigator.share(shareData).catch((e: unknown) => {
+        if (e instanceof DOMException && e.name === 'AbortError') return;
+        handleDownloadImage();
       });
     } else {
-      navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      alert('이 브라우저는 이미지 바로 공유를 지원하지 않아 이미지를 저장합니다. 저장된 이미지를 공유해주세요!');
+      handleDownloadImage();
     }
   };
+
+  const isReady = cardFile !== null;
 
   return (
     <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
@@ -295,22 +312,29 @@ export const SharePhotoCardModal: React.FC<SharePhotoCardModalProps> = ({ result
         {/* Buttons */}
         <div className="space-y-2">
           <button
-            onClick={handleDownloadImage}
-            disabled={downloading}
+            onClick={handleShareImage}
+            disabled={!isReady}
             className="w-full py-3 px-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 hover:from-amber-400 hover:to-red-500 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-orange-600/25 disabled:opacity-50"
           >
-            <Download className="w-4 h-4" />
-            <span>{downloading ? '카드 생성 중...' : '📸 사진 카드 이미지로 저장 (다운로드)'}</span>
+            <Share2 className="w-4 h-4" />
+            <span>{isReady ? '📸 사진 카드 이미지로 공유하기' : generateFailed ? '이미지 생성 실패' : '카드 생성 중...'}</span>
           </button>
 
           <button
-            onClick={handleShareText}
-            className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-neutral-200 bg-neutral-800 hover:bg-neutral-700 active:scale-[0.98] transition-all flex items-center justify-center gap-2 border border-neutral-700"
+            onClick={handleDownloadImage}
+            disabled={!isReady}
+            className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-neutral-200 bg-neutral-800 hover:bg-neutral-700 active:scale-[0.98] transition-all flex items-center justify-center gap-2 border border-neutral-700 disabled:opacity-50"
           >
-            {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Share2 className="w-4 h-4" />}
-            <span>{copied ? '복사 완료!' : '결과 문구 복사 / 카톡 공유'}</span>
+            <Download className="w-4 h-4" />
+            <span>사진 카드 이미지로 저장 (다운로드)</span>
           </button>
         </div>
+
+        {generateFailed && (
+          <p className="text-[10px] text-red-400 text-center mt-2.5">
+            이미지 생성 중 오류가 발생했습니다. 화면을 캡처해서 사용하실 수도 있습니다!
+          </p>
+        )}
 
         <p className="text-[10px] text-neutral-500 text-center mt-2.5">
           저장된 이미지를 인스타그램, 카카오톡, 학급 밴드에 공유해보세요!

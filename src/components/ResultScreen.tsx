@@ -4,7 +4,6 @@ import {
   Trophy,
   Award,
   Sparkles,
-  Share2,
   Copy,
   Check,
   RefreshCw,
@@ -33,7 +32,6 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
   onOpenEncyclopedia,
 }) => {
   const [copiedCode, setCopiedCode] = useState(false);
-  const [copiedLink, setCopiedLink] = useState(false);
   const [isPhotoCardOpen, setIsPhotoCardOpen] = useState(false);
 
   const winner = PHILOSOPHERS[result.winnerId];
@@ -59,26 +57,6 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
     navigator.clipboard.writeText(result.shareCode);
     setCopiedCode(true);
     setTimeout(() => setCopiedCode(false), 2000);
-  };
-
-  const handleShareResult = () => {
-    const shareText = `[철학자 생존게임 결과]\n나의 최종 생존 사상가: 🥇 ${winner.name} (“${winner.nickname}”)\n💬 "${winner.shortDesc}"\n철학 코드: ${result.shareCode}\n너의 생존 철학자는 누구야? 지금 바로 확인해봐!`;
-
-    if (navigator.share) {
-      navigator.share({
-        title: `철학자 생존게임 결과 - ${winner.name}`,
-        text: shareText,
-        url: window.location.href,
-      }).catch(() => {
-        navigator.clipboard.writeText(shareText);
-        setCopiedLink(true);
-        setTimeout(() => setCopiedLink(false), 2000);
-      });
-    } else {
-      navigator.clipboard.writeText(shareText);
-      setCopiedLink(true);
-      setTimeout(() => setCopiedLink(false), 2000);
-    }
   };
 
   const traitEntries = Object.entries(result.normalizedTraits) as [TraitKey, number][];
@@ -342,21 +320,13 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="grid grid-cols-2 gap-2.5">
+        <div className="grid grid-cols-1 gap-2.5">
           <button
             onClick={onOpenCompare}
             className="py-3 px-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-orange-600 hover:bg-orange-500 transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-orange-600/20 active:scale-95"
           >
             <Swords className="w-4 h-4" />
             <span>친구 코드 입력 비교</span>
-          </button>
-
-          <button
-            onClick={handleShareResult}
-            className="py-3 px-3 rounded-xl font-bold text-xs sm:text-sm text-neutral-200 bg-neutral-800 hover:bg-neutral-700 transition-colors flex items-center justify-center gap-1.5 border border-neutral-700 active:scale-95"
-          >
-            {copiedLink ? <Check className="w-4 h-4 text-emerald-400" /> : <Share2 className="w-4 h-4" />}
-            <span>{copiedLink ? '복사 완료!' : '결과 텍스트 공유'}</span>
           </button>
         </div>
       </div>
