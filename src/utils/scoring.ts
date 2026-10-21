@@ -22,6 +22,32 @@ export const TRAIT_LABELS: Record<TraitKey, { name: string; desc: string; color:
   practical: { name: '실용·행동', desc: '현실 문제 해결과 실천적 유용성', color: '#eab308' }, // Amber
 };
 
+// 철학자별 "무작위로 답했을 때"의 가중치 합 평균·표준편차 (maxRound 라운드까지)
+// 선택지에 자주 등장하는 철학자가 단순 합산만으로 1위를 독식하지 않도록,
+// 순위는 원점수 대신 이 기준선 대비 얼마나 두드러지게 일치했는지(표준점수)로 매긴다.
+function getBaselines(maxRound: number) {
+  const baselines: Record<string, { mean: number; sd: number }> = {};
+  PHILOSOPHER_LIST.forEach((p) => {
+    let mean = 0;
+    let variance = 0;
+    QUESTIONS.forEach((q) => {
+      if (q.round > maxRound) return;
+      const ws = q.options.map((o) => o.weights[p.id] ?? 0);
+      const avg = ws.reduce((a, b) => a + b, 0) / ws.length;
+      mean += avg;
+      variance += ws.reduce((a, w) => a + (w - avg) ** 2, 0) / ws.length;
+    });
+    baselines[p.id] = { mean, sd: Math.sqrt(variance) };
+  });
+  return baselines;
+}
+
+// 원점수(기본 100 + 가중치 × 4)를 표준점수로 변환
+function toMatchIndex(score: number, baseline: { mean: number; sd: number }) {
+  if (baseline.sd === 0) return 0;
+  return ((score - 100) / 4 - baseline.mean) / baseline.sd;
+}
+
 export function calculateGameResults(selectedAnswers: Record<number, string>): ScoreResult {
   // 1. 철학자 기본 점수 100점에서 시작
   const scores: Record<string, number> = {};
@@ -64,7 +90,8 @@ export function calculateGameResults(selectedAnswers: Record<number, string>): S
     }
   });
 
-  // 3. 랭킹 정렬
+  // 3. 랭킹 정렬 (표준점수 기준 — 철학자별 등장 빈도 차이를 보정)
+  const baselines = getBaselines(QUESTIONS.length);
   const ranked = PHILOSOPHER_LIST.map((p) => ({
     id: p.id,
     name: p.name,
@@ -72,7 +99,10 @@ export function calculateGameResults(selectedAnswers: Record<number, string>): S
     emoji: p.emoji,
     score: scores[p.id] || 100,
     hp: Math.max(10, Math.min(100, Math.round((scores[p.id] / 160) * 100))),
-  })).sort((a, b) => b.score - a.score);
+    matchIndex: toMatchIndex(scores[p.id], baselines[p.id]),
+  }))
+    .sort((a, b) => b.matchIndex - a.matchIndex)
+    .map(({ matchIndex: _matchIndex, ...rest }) => rest);
 
   const winner = ranked[0];
   const runnerUp = ranked[1];
@@ -131,11 +161,12 @@ export function getMidRoundBriefing(
     }
   });
 
+  const baselines = getBaselines(round);
   const ranked = PHILOSOPHER_LIST.map((p) => ({
     id: p.id,
     nickname: p.nickname,
     emoji: p.emoji,
-    score: partialScores[p.id],
+    score: toMatchIndex(partialScores[p.id], baselines[p.id]),
   })).sort((a, b) => b.score - a.score);
 
   let survivorCount = 20;

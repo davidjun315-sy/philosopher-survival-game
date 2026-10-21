@@ -188,7 +188,7 @@ export const QUESTIONS: Question[] = [
       {
         id: 'r6_opt4',
         text: '이 부당한 벼랑 끝 시련이야말로 진짜 내 곁에 남을 사람과 가짜를 가려내고, 내면의 독립심을 깨우는 전환점이다.',
-        weights: { jaspers: 5, kierkegaard: 4, heidegger: 3 },
+        weights: { kierkegaard: 5, jaspers: 4, heidegger: 3 },
         traitBonuses: { freedom: 5, duty: 2 }
       }
     ]
